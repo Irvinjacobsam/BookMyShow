@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile</title>
+</head>
+<body>
+    <h1 id="response"></h1>
+    <button onclick="logout()">logout</button>
+
+    <script>
+        let response = document.getElementById("response");
+        let token = localStorage.getItem("token");
+        fetch("http://localhost:3000/api/get-private-data", {
+            method: "get",
+            headers:{
+                authorization: `Bearer ${token}`
+            }
+        })
+        .then(res => {
+            if(res.status== 200) {
+                return res.text();
+            }
+            alert("failed to fetch data")
+        })
+        .then(data => {
+            if(data) {
+                response.textContent = data;
+            }
+        })
+        function logout(){
+            localStorage.removeItem("token");
+            location.href = "http://localhost:3000/login.html"
+        }
+    </script>
+</body>
+</html>

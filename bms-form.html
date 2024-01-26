@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bms-style.css">
+</head>
+<body>
+    <div class="bms"><img src="./images/bookmyshow.png" alt=""  height="60px" width="150px"></div>
+    <div class="logo"><img src="./images/bookmyshow.png" alt="" height="60px" width="150px"  ></div>
+    <!-- <div><img src="./images/bookmyshow.png" alt="" height="60px" width="150px" style="padding-left: 30px; padding-top: 10px; box-sizing:content-box;" ></div> -->
+    <form onsubmit="addMovies(event)">
+        <label for="poster">
+            <img src="./images/avatar.png" alt="" id="movieimg" height="250px" width="180px">
+            <input onchange="posterchange(event)" type="file" id="poster" name="poster" style="display: none;"  >
+        </label><br>
+
+        <div>
+        <label for="">Movie Name:</label><input type="text" id="Mvname" name="Mvname"><br>
+       </div>
+
+       <div>
+        <label for="">Language:</label><input type="text" id="lang" name="lang"><br>
+       </div>
+
+       <div>
+        <label for="">Category:</label><input type="text" id="category" name="category"><br>
+    </div>
+        <button>Add Movie</button>
+    </form>
+
+ 
+
+    <script>
+
+    let movieimg = document.getElementById("movieimg");
+        function posterchange(event) {
+            let file = event.target.files[0];
+            convert(file)
+                .then(base64 => {
+                    movieimg.src = base64;
+                })
+        }
+
+        function convert(file) {
+            return new Promise((res, rej) => {
+                let fileReader = new FileReader();
+                fileReader.readAsDataURL(file);
+                fileReader.onload = () => {
+                    res(fileReader.result);
+                }
+                fileReader.onerror = (error) => {
+                    rej(error);
+                }
+            })
+        }
+
+        function addMovies(event){
+            event.preventDefault();
+            let data = new FormData(event.target);
+            let file = event.target[0].files[0];
+            convert(file)
+                .then(base64img => {
+                    data.delete("poster");
+                    data.append("poster", base64img);
+                    fetch(`http://localhost:3000/api/add-Movies`, {
+                        method: "post",
+                        body: data
+                    })
+                        .then(res => {
+                            if (res.status == 200) {
+                                return res.text();
+                            }
+                            if (res.status == 400) {
+                                return res.text();
+                            }
+
+                        })
+                        .then(data => {
+                            if (data) {
+                                alert(data);
+                            }
+                        })
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+
+       
+        // let Mvname=document.getElementById("Mvname")
+        
+
+        // function printMovies(){
+        //     let data = new FormData;
+        //     fetch("http://localhost:3000/api/print-Movies" )
+        //     .then(res => res.json())
+        //     .then (data=> {
+        //         console.log(data)
+        //         list.innerHTML ="";
+        //         data.forEach((item) => {
+        //             let li = `<li>${item.Mvname}
+        //             </li>`;
+        //         list.innerHTML += li ;
+        //         })
+        //     })
+        // }
+        // printMovies();
+
+    </script>
+</body>
+</html>

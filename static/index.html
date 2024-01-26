@@ -1,0 +1,99 @@
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="preventDefault()">
+        <input type="text" id="todo" name="todo">username
+        <button onclick="add()">submit</button>
+    </form>
+
+    <ol id="list"></ol>
+
+    <script>
+        let list= document.getElementById("list");
+        let todo = document.getElementById("todo");
+
+        function add() {
+            event.preventDefault();
+            fetch("http://localhost:3000/api/set-todo" ,{
+                method: "post",
+                headers: {
+                    "content-Type":"application/json"
+                },
+            body: JSON.stringify({
+                todo: todo.value
+            })    
+            } )
+                .then(res => res.text())
+                .then(data => {
+                     alert(data) ;
+                     print();
+                })
+                .catch(error => console.log(error))
+        }
+
+        function print(){
+            fetch("http://localhost:3000/api/get-todo" )
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                list.innerHTML ="";
+                data.forEach((item,index) => {
+                    let li = `<li>${item.todo}
+                        <button onclick="del('${item._id}')">delete</button>
+                       <button onclick="edit('${item._id}')">edit</button>  
+                        </li>`;
+                    list.innerHTML += li ;
+
+                })
+            })
+        }
+        print();
+
+        function del(index) {
+            fetch(`http://localhost:3000/api/del-todo`,{
+                method:"delete",
+                headers: {
+                    "content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id:index
+                })
+            })
+                .then(res => res.text())
+                .then(data => {
+                    alert(data);
+                    print();
+                })
+        }
+
+        function edit(index) {
+            let newtodo = prompt("enter new todo :");
+            fetch(`http://localhost:3000/api/update-todo`,{
+                method:"put",
+                headers: {
+                    "content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id:index,
+                    todo:newtodo
+                })
+            })
+                .then(res => res.text())
+                .then(data => {
+                    alert(data);
+                    print();
+                })
+        }
+
+    </script>
+</body>
+</html>
+
+ 
+

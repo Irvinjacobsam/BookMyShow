@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" onsubmit="submitHandler(event)">
+       <input type="file" name="myfile" id="myfile" multiple>
+       <input type="submit" value="upload">
+    </form>
+
+    <img src="http://localhost:3000/api/get-file/files/aditya-birla.jpg" id="img" alt="image">
+
+    <script>
+        function getfile(){
+          fetch("http://localhost:3000/api/upload-file")
+          .then(res => {
+            if(res.status == 2000) {
+            return res.json();
+          }
+           alert("error occured") 
+          })
+          .then(data => {
+            if(data) {
+                document.getElementById("img").src = data[0].myfile;
+            }
+          })
+
+        
+        }
+
+        function submitHandler(event) {
+            event.preventDefault();
+            let formData = new FormData(event.target);
+            fetch("http://localhost:3000/api/upload-file", {
+                method: "post",
+                body: formData
+            })
+            .then ( res => res.text() ) 
+            .then(data => {
+                alert(data);
+            })
+        }
+    </script>
+</body>
+</html>

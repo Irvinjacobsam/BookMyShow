@@ -1,0 +1,12 @@
+form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding-left: 500px;
+    padding-top: 150px;
+}
+
+form img {
+    padding-left: 90px;
+    border-radius: 30px;
+}

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bms.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-lg ">
+        <div class="container-fluid logo">
+            <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+            <img src="./images/bookmyshow.png" alt="" height="70px" width="160px">
+
+            <form class="d-flex search" role="search">
+                <input class="form-control me-2" type="search"
+                    placeholder="Search for Movies, Events, Plays and Activities" aria-label="Search">
+                <!-- <button class="btn btn-outline-success" type="submit">Search</button> -->
+            </form>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <div class="addmvs">
+                        <a href="./bms-form.html">
+                            <button class="addmovies">Add Movies</button>
+                        </a>
+                    </div>
+
+                    <div class="place">
+                        <a href="" class="places">Kochi</a>
+
+                        <div class="drops drop-place">
+
+                            <div class="city-name"><img src="./images/mumbai.avif" alt="">
+                               <h6>Mumbai</h6>
+                            </div>
+                            <div class="city-name"><img src="./images/chennI.avif" alt="">
+                                <h6>Chennai</h6>
+                             </div>
+                             <div class="city-name"><img src="./images/delhi.avif" alt="">
+                                <h6>Delhi</h6>
+                             </div>
+                             <div class="city-name"><img src="./images/banglore.png" alt="">
+                                <h6>Bangaluru</h6>
+                             </div>
+                             <div class="city-name"><img src="./images/hydrebad.png" alt="">
+                                <h6>Hyderabad</h6>
+                             </div>
+                             <div class="city-name"><img src="./images/kolkata.avif" alt="">
+                                <h6>Kolkata</h6>
+                             </div>
+
+                        </div>
+                    </div>
+
+
+                    </div>
+
+                    <div class="addmvs">
+                        <a href="./login-bms.html" class="button1"><button id="butt">Sign in</button></a>
+                    </div>
+                    <div class="menuss"></div>
+                    <img class="menus" src="./images/menu_FILL0_wght400_GRAD0_opsz24.svg" alt="" height="35px">
+
+                </ul>      
+            </div>
+            
+
+        </div>
+        </div>
+    </nav>
+
+    <div class="sub">
+
+        <div class="sub1">
+            <li><a href="">Movies</a></li>
+            <li><a href="">Stream</a></li>
+            <li><a href="">Events</a></li>
+            <li><a href="">Plays</a></li>
+            <li><a href="">Sports</a></li>
+            <li><a href="">Actvities</a></li>
+        </div>
+        <div class="sub2">
+            <li><a href="">List your show</a></li>
+            <li><a href="">Corporates</a></li>
+            <li><a href="">Offers</a></li>
+            <li><a href="">Gift Cards</a></li>
+        </div>
+    </div>
+
+    <div class="slides">
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="./images/slide1.avif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/slide2.avif" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="./images/slide3.avif" class="d-block w-100" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="main">
+
+        <div class="sec3">
+            <div class="sec3a">
+                <h1>Recommended Movies</h1>
+            </div>
+            <div class="sec3b"><a href="">see all ></a></div>
+        </div>
+
+
+        <div class="card-groups" id="mvlist">
+
+            <div class="card" style="width: 15rem; " >
+                <img src="./images/falimy.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Falimy</h5>
+                    <p class="card-text">Comedy/Drama/Family</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 15rem;">
+                <img src="./images/phoenix.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Phoenix</h5>
+                    <p class="card-text"> Horror/Romantic</p>
+
+                </div>
+            </div>
+
+
+            <div class="card" style="width: 15rem;">
+                <img src="./images/garudan.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Garudan</h5>
+                    <p class="card-text">Crime/Drama/Thriller</p>
+
+                </div>
+            </div>
+
+            <div class="card" style="width: 15rem;">
+                <img src="./images/jigarthanda.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Jigarthamda Double X</h5>
+                    <p class="card-text">Action/Comedy/Period</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 15rem;">
+                <img src="./images/kathal.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Kathal</h5>
+                    <p class="card-text">Drama/Family</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 15rem;">
+                <img src="./images/sheshamfathima.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Sesham Mike- il Fathime</h5>
+                    <p class="card-text">Comedy/Family</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 15rem;">
+                <img src="./images/bandra.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Bandra</h5>
+                    <p class="card-text">Action/Drama/Family/Thriller</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 15rem;">
+                <img src="./images/faceoffaceless.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">The Face of the Faceless</h5>
+                    <p class="card-text">Drama</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 15rem;">
+                <img src="./images/tiger3.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Tiger 3</h5>
+                    <p class="card-text">Action/Thriller</p>
+                </div>
+            </div>
+
+            <div class="card" style="width: 15rem;">
+                <img src="./images/carlos.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Carlos</h5>
+                    <p class="card-text">Drama</p>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="entertainment">
+            <img src="./images/entertaiment.avif" alt="">
+        </div>
+
+        <div class="live-events">
+            <h5>The Best Of Live Events</h5>
+        </div>
+
+        <div class="event">
+            <div class="sub-event"><img src="./images/workshopsandmore.avif" alt=""></div>
+            <div class="sub-event"><img src="./images/comedyshows.avif" alt=""></div>
+            <div class="sub-event"><img src="./images/musicshos.avif" alt=""></div>
+            <div class="sub-event"><img src="./images/esports.avif" alt=""></div>
+            <div class="sub-event"><img src="./images/upskill.avif" alt=""></div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer1">
+            <div class="hut"><img src="./images/hut.svg" alt=""></div>
+            <div class="line1">List your Show</div>
+            <div class="line2">Got a show, event, activity, or a great experience? partner with us & get listed on
+                BookMyShow</div>
+            <div class="contact"><button>Contact today!</button></div>
+        </div>
+
+        <div class="footer2">
+            <div class="line-a">
+                <hr>
+            </div>
+            <div class="line-logo-img"><img src="./images/bookmyshow.png" alt="" height="70px" width="140px"></div>
+            <div class="line-b">
+                <hr>
+            </div>
+        </div>
+
+        <div class="footer3">
+            <a href="https://www.facebook.com/BookMyShowIN"><img src="./images/facebook.svg" alt=""></a>
+            <a href="https://twitter.com/i/flow/login?redirect_after_login=%2FBookMyShow%2F"><img
+                    src="./images/x-twitter.svg" alt=""></a>
+            <a href="https://www.instagram.com/bookmyshowin/"><img src="./images/instagram.svg" alt=""></a>
+            <a href="https://www.youtube.com/user/BookMyShow/featured"><img src="./images/youtube.svg" alt=""></a>
+            <a href="https://www.pinterest.com/bookmyshow/"><img src="./images/pinterest.svg" alt=""></a>
+            <a href="https://www.linkedin.com/company/bookmyshow/"><img src="./images/linkedin.svg" alt=""></a>
+        </div>
+
+        <div class="footer4">Copyright 2023 Bigtree Entertainment Pvt. Ltd. All Rights Reserved <br> content and images
+            used on this site are
+            copyright protected and copyrights vests with the respective owners. The usage of the content and images on
+            this website is intended to promote the works and no endorsement of the artist shall be implied.
+            Unauthorized use is prohibited and punishable by law.
+        </div>
+    </footer>
+
+    <script>
+
+        let mvlist = document.getElementById("mvlist");
+
+        function printMovies() {
+            let data = new FormData;
+            fetch("http://localhost:3000/api/print-Movies")
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    data.forEach((item) => {
+
+                        let li=` <div class="card" style="width: 15rem;">
+                            <img src="${item.poster}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">${item.Mvname}</h5>
+                    <p class="card-text">${item.category}</p>
+                </div>
+            </div>`;
+
+            mvlist.innerHTML += li ;
+                    });
+                })
+            }
+            printMovies();
+
+            </script>
+
+
+
+</body>
+
+</html>
+

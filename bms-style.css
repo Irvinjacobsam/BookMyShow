@@ -1,0 +1,76 @@
+html,body{
+    height: 100%;
+    width: 100%;
+    /* background-image: url("./360_F_286323187_mDk3N4nGDaPkUmhNcdBe3RjSOfKqx4nZ.jpg"); */
+    /* background-color: black; */
+    background-image: url(./bcgrnd.jpg);
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+form {
+    display: flex;
+    display: grid;
+    margin: auto;
+    flex-direction: column;
+    width: 25rem;
+    height: 30rem;
+    padding-top: 3rem; 
+    gap: 1rem;
+    border-radius: 1rem;
+}
+
+input{
+    width: 60%;
+    border: 1px solid black;
+}
+
+
+form img{
+    margin-left: 6.5rem;
+    border: 1px solid white;
+}
+
+label {
+    color: white;
+    font-variant: small-caps;
+    display: inline-block;
+    width: 30%;
+    text-align: left;
+}
+
+button{
+    margin-left: 9.5rem;
+    margin-top: 2rem;
+    width: 6rem;
+    height: 2rem;
+    color: white;
+    background-color: rgb(236, 94, 113);
+    border: 1px solid white;
+}
+
+.bms{
+    width: 10rem;
+    color: white;
+    animation-name: start;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    z-index: -1;
+}
+.logo img{
+    position: relative;
+    top: -65px;
+}
+
+@keyframes start{
+    0%{
+        transform: translateX(0px);
+    }
+    30%{
+        transform: translateX(0px); 
+    }
+    100%{
+        transform: translateX(1230px);
+    }
+}

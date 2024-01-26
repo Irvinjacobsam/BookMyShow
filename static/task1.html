@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="task1style.css">
+</head>
+
+<body>
+    <form action="" onsubmit="registers(event)">
+        <label for="profileImg">
+            <img src="avatar-icon-profile-icon-member-login-isolated-vector.jpg" alt="" height="120px" width="120px"
+                id="change">
+            <input onchange="imgchange(event)" type="file" id="profileImg" name="profileImg" style="display: none;">
+        </label> <br>
+        <label for="">USERNAME</label><input type="text" id="username" name="username"><br>
+        <label for="">EMAIL</label><input type="email" id="mail" name="mail"><br>
+        <label for="">QUALIFICATION</label><input type="text" id="password" name="password"><br>
+        <label for="">RESUME</label><input type="file" id="resume" name="resume"> <br>
+        <button>SUBMIT</button>
+
+    </form>
+
+    <script>
+        let change = document.getElementById("change");
+        function imgchange(event) {
+            let file = event.target.files[0];
+            convert(file)
+                .then(base64 => {
+                    change.src = base64;
+                })
+        }
+
+        function convert(file) {
+            return new Promise((res, rej) => {
+                let fileReader = new FileReader();
+                fileReader.readAsDataURL(file);
+                fileReader.onload = () => {
+                    res(fileReader.result);
+                }
+                fileReader.onerror = (error) => {
+                    rej(error);
+                }
+            })
+        }
+
+
+        function registers(event) {
+            event.preventDefault();
+            let data = new FormData(event.target);
+            let file = event.target[0].files[0];
+            convert(file)
+                .then(base64img => {
+                    data.delete("profileImg");
+                    data.append("profileImg", base64img);
+                    fetch(`http://localhost:3000/api/register-form`, {
+                        method: "post",
+                        body: data
+                    })
+                        .then(res => {
+                            if (res.status == 200) {
+                                return res.text();
+                            }
+                            if (res.status == 400) {
+                                return res.text();
+                            }
+
+                        })
+                        .then(data => {
+                            if (data) {
+                                alert(data);
+                            }
+                        })
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

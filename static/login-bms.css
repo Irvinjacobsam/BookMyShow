@@ -1,0 +1,97 @@
+html,body{
+    height: 80%;
+    width: 100%;
+    /* background-image: url(./images/bms-bg2.webp); */
+    background-color: rgb(248, 68, 100);
+    background-color: black;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+form {
+    display: flex;
+    display: grid;
+    margin: auto;
+    flex-direction: column;
+    width: 25rem;
+    height: 30rem;
+    margin-top: 5rem; 
+    text-align: center;
+    font-size: 14px;
+    border-radius: 4px;
+    font-weight: 500;
+    color: rgb(89, 89, 89);
+    background: rgb(255, 255, 255);
+    padding-top: 30px;
+    z-index: 2;
+}
+label{
+    display: inline;
+}
+input{
+    width: 60%;
+}
+
+
+button{
+    width: 70%;
+    height: 2.5rem;
+    background-color: white;
+    border: .5px solid black;
+    border-radius: 4px;
+}
+button img{
+    float: inline-start;
+    padding-right: 50px;
+}
+p{
+    font-size: 14px;
+    padding-top: 30px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+h1{
+    font-size: 18px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(51, 51, 51);
+}
+.bms{
+    width: 10rem;
+    color: white;
+    animation-name: start;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    z-index: -1;
+}
+.logo img{
+    position: relative;
+    top: -65px;
+}
+
+@keyframes start{
+    0%{
+        transform: translateX(0px);
+    }
+    30%{
+        transform: translateX(0px); 
+    }
+    100%{
+        transform: translateX(1230px);
+    }
+}
+/* @keyframes start{
+    0%{
+        transform: translateY(600px);
+    }
+
+    50%{
+        transform: translateX(1200px);
+    }
+    75%{
+        transform: translateY(620px);
+    }
+    100%{
+        transform: translateY(600px);
+    }
+  
+} */

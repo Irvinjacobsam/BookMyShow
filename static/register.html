@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <form onsubmit="register(event)">
+       <input type="text" id="password" name="username" placeholder="username"> <br>
+       <input type="password" id="password" name="password" placeholder="password"><br>
+       <input type="submit" value="register">
+    </form>
+
+    <script>
+        function register(event){
+            event.preventDefault();
+            let data= new FormData(event.target);
+            let username = data.get("username");
+            let password = data.get("password");
+            fetch(`http://localhost:3000/api/register`,{
+                method: "post",
+                headers: {
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify({
+                    username,
+                    password
+                })
+            })
+            .then(res => {
+                if(res.status == 200) {
+                    return res.text();
+                }
+                alert("registration failed")
+            })
+            .then(data => {
+                if(data) {
+                    alert(data);
+                    location.href = "http://localhost:3000/login.html";
+                }
+            })
+        }
+    </script>
+</body>
+</html>
